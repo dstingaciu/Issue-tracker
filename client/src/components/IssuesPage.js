@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ISSUES_API_URL } from "../defs";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export default function IssuesPage() {
   const [issues, setIssues] = useState([]);
@@ -51,9 +52,9 @@ export default function IssuesPage() {
                 <td>{issue.title}</td>
                 <td>{issue.description}</td>
                 <td>
-                  <Link to={`/update/${issue._id}`}>Edit</Link>
+                  <Button variant="contained" color="primary" herf={`/update/${issue._id}`}>Edit</Button>
                   {' | '}
-                  <button onClick={() => deleteIssue(issue._id)}>Delete</button>
+                  <Button type="submit" variant="contained" color="secondary" onClick={() => deleteIssue(issue._id)}>Delete</Button>
                 </td>
               </tr>
             ))}
