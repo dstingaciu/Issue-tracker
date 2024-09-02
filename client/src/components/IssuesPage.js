@@ -52,7 +52,7 @@ export default function IssuesPage() {
                 <td>{issue.title}</td>
                 <td>{issue.description}</td>
                 <td>
-                  <Button variant="contained" color="primary" herf={`/update/${issue._id}`}>Edit</Button>
+                  <Link herf={`/update/${issue._id}`}>Edit</Link>
                   {' | '}
                   <Button type="submit" variant="contained" color="secondary" onClick={() => deleteIssue(issue._id)}>Delete</Button>
                 </td>
