@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ISSUES_API_URL } from "../defs";
-import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
 export default function IssuesPage() {
@@ -23,6 +22,7 @@ export default function IssuesPage() {
 
 
   const deleteIssue = async (id) => {
+    console.log("IONINI")
     try {
       await axios.delete(ISSUES_API_URL + id);
       setUpdateTriggered(true);
@@ -52,7 +52,7 @@ export default function IssuesPage() {
                 <td>{issue.title}</td>
                 <td>{issue.description}</td>
                 <td>
-                  <Link herf={`/update/${issue._id}`}>Edit</Link>
+                  <Button variant="contained" color="primary" href={`/update/${issue._id}`}>Edit</Button>
                   {' | '}
                   <Button type="submit" variant="contained" color="secondary" onClick={() => deleteIssue(issue._id)}>Delete</Button>
                 </td>
